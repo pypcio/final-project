@@ -1,0 +1,14 @@
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.formstyle {
+  width: 40%;
+}
+.formstyle > * {
+  display: flex;
+}
+input {
+  border: solid #919191 1px;
+}
