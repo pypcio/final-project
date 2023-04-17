@@ -12,3 +12,11 @@
 .navBar {
   justify-content: center;
 }
+.my-wrap {
+  display: flex;
+  align-items: center;
+}
+.my-wrap > :last-child {
+  margin: 0 auto;
+  padding-right: 100px;
+}

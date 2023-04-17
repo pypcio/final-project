@@ -7,7 +7,9 @@ export default function NavigationBar() {
   };
   return (
     <nav style={navStyle}>
-      <p className="f3 link dim mb0 black pa3 pointer">Sign out</p>
+      <p className="f5 fw3 link pa3 dim mb0 black  pointer underline-hover">
+        Sign out
+      </p>
     </nav>
   );
 }
