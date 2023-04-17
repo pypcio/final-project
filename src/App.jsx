@@ -11,10 +11,11 @@ import axios from "axios";
 function App() {
   const [newData, setData] = useState("");
   const [newImage, setNewImage] = useState([]);
-
+  const [url, setUrl] = useState(null);
   const handleUrl = (event) => {
     event.preventDefault();
     // console.log("Current link: ", newData);
+    setUrl(newData);
     processImage(newData);
     setData("");
   };
@@ -31,8 +32,9 @@ function App() {
     const USER_ID = "sp3c";
     const APP_ID = "test";
     // Change these to whatever model and image URL you want to use
-    const MODEL_ID = "general-image-recognition";
-    const MODEL_VERSION_ID = "aa7f35c01e0642fda5cf400f543e7c40";
+    const MODEL_ID = "face-detection";
+    const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
+
     const IMAGE_URL = url;
 
     const raw = JSON.stringify({
@@ -69,7 +71,9 @@ function App() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) => setNewImage(result.outputs))
+      .then((result) =>
+        setNewImage(result.outputs[0].data.regions[0].region_info.bounding_box)
+      )
       .catch((error) => console.log("error", error));
     console.log(newImage);
     // axios
@@ -99,7 +103,7 @@ function App() {
         handleData={handleData}
         newData={newData}
       />
-      <FaceRecognition newImage={newImage} />
+      <FaceRecognition newImage={url} />
       <ParticlesBg color="#FFFEFE" num={50} type="cobweb" bg={true} />
     </div>
   );
