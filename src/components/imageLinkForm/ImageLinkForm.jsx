@@ -16,7 +16,7 @@ export default function ImageLinkForm({ handleUrl, handleData, newData }) {
               onChange={handleData}
             />
             <button
-              className=" tc w-auto grow f5 link ph3 dib white bg-light-purple br1 shadow-5 ba b--gray"
+              className=" tc w-auto grow f5 link ph3 dib white bg-gray br1 shadow-5 ba b--gray"
               type="submit"
             >
               Detect

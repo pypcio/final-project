@@ -10,8 +10,9 @@ import axios from "axios";
 // console.log(tescik2);
 function App() {
   const [newData, setData] = useState("");
-  const [newImage, setNewImage] = useState([]);
+  const [faceBox, setFaceBox] = useState([]);
   const [url, setUrl] = useState(null);
+
   const handleUrl = (event) => {
     event.preventDefault();
     // console.log("Current link: ", newData);
@@ -19,12 +20,28 @@ function App() {
     processImage(newData);
     setData("");
   };
-
   const handleData = (event) => {
     const temp = event.target.value;
     setData(temp);
   };
-
+  const calculateFaceLocation = (imageUrl, boundaryBox) => {
+    // console.log("chyba dziala: ", boundaryBox);
+    const image = document.getElementById("face-img");
+    
+    const width = Number(image.width);
+    const height = Number(image.height);
+    console.log(boundaryBox);
+    const detectFace = boundaryBox.map((n) => {
+      return {
+        leftCol: n.left_col * width,
+        topRow: n.top_row * height,
+        rightCol: width - (n.right_col * width),
+        bottomRow: height - (n.bottom_row * height),
+      };
+    });
+    console.log("twarz",detectFace)
+    setFaceBox(detectFace);
+  };
   const processImage = (url) => {
     const PAT = import.meta.env.VITE_REACT_APP_PAT_KEY;
     // Specify the correct user_id/app_id pairings
@@ -34,7 +51,6 @@ function App() {
     // Change these to whatever model and image URL you want to use
     const MODEL_ID = "face-detection";
     const MODEL_VERSION_ID = "6dc7e46bc9124c5c8824be4822abe105";
-
     const IMAGE_URL = url;
 
     const raw = JSON.stringify({
@@ -62,7 +78,7 @@ function App() {
       body: raw,
     };
 
-    fetch(
+    return fetch(
       "https://api.clarifai.com/v2/models/" +
         MODEL_ID +
         "/versions/" +
@@ -71,11 +87,10 @@ function App() {
       requestOptions
     )
       .then((response) => response.json())
-      .then((result) =>
-        setNewImage(result.outputs[0].data.regions[0].region_info.bounding_box)
-      )
+      .then((result) => result.outputs[0].data.regions)
+      .then((result) => result.map((n) => n.region_info.bounding_box))
+      .then((result) => calculateFaceLocation(url, result))
       .catch((error) => console.log("error", error));
-    console.log(newImage);
     // axios
     //   .post(
     //     "https://api.clarifai.com/v2/models/" +
@@ -103,7 +118,7 @@ function App() {
         handleData={handleData}
         newData={newData}
       />
-      <FaceRecognition newImage={url} />
+      <FaceRecognition faceBox={faceBox} newImage={url} />
       <ParticlesBg color="#FFFEFE" num={50} type="cobweb" bg={true} />
     </div>
   );

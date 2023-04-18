@@ -1,12 +1,15 @@
-.face-photo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .photo {
   margin-top: 1rem;
   max-width: 450px;
   max-height: 400px;
   width: auto;
   height: auto;
+}
+.bounding-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #149df2 inset;
+  display: flex;
+  cursor: pointer;
+  flex-wrap: wrap;
+  justify-content: center;
 }
