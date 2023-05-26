@@ -6,9 +6,9 @@
   /* background-color: rgb(48, 85, 209); */
   margin: 20px;
   margin-top: 0px;
-  border: solid black 1px;
+  border: solid rgb(134, 134, 134) 1px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(89deg, #ff5edf 0%, #ded304 100%);
+  background: hsla(211, 43%, 64%, 0.68);
 }
 
 .logoStyle p {

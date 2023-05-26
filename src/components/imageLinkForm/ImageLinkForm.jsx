@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/ImageLinkForm.css";
-export default function ImageLinkForm({ handleUrl, handleData, newData }) {
+function ImageLinkForm({ handleUrl, handleData, newData }) {
   return (
     <div>
       <p className="f5 fw8 white">
@@ -16,7 +16,7 @@ export default function ImageLinkForm({ handleUrl, handleData, newData }) {
               onChange={handleData}
             />
             <button
-              className=" tc w-auto grow f5 link ph3 dib white bg-light-purple br1 shadow-5 ba b--gray"
+              className=" tc w-auto grow f5 link ph3 dib white br1 shadow-5 ba b--gray"
               type="submit"
             >
               Detect
@@ -27,3 +27,4 @@ export default function ImageLinkForm({ handleUrl, handleData, newData }) {
     </div>
   );
 }
+export default ImageLinkForm;
