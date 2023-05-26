@@ -6,16 +6,21 @@
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
+  width: 100%;
   /* color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424; */
-  background: linear-gradient(180deg, #9c7a9c 100%, #434444 0%);
+  background: linear-gradient(45deg, #6086d7 0%, #9197d8 50%, #9f5ad8 100%);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
 }
 /* 
 a {
@@ -27,13 +32,7 @@ a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+
 
 h1 {
   font-size: 3.2em;

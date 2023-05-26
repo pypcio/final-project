@@ -1,18 +1,15 @@
-import "./styles/App.css";
-import NavigationBar from "./components/navigation/NavigationBar";
-import Logo from "./components/logo/Logo";
-import ImageLinkForm from "./components/imageLinkForm/ImageLinkForm.jsx";
+import Logo from "../components/logo/Logo";
+import ImageLinkForm from "../components/imageLinkForm/ImageLinkForm.jsx";
 import { useState } from "react";
 import ParticlesBg from "particles-bg";
-import Rank from "./components/rank/Rank";
-import FaceRecognition from "./components/faceRecognition/FaceRecognition";
-import axios from "axios";
+import Rank from "../components/rank/Rank";
+import FaceRecognition from "../components/faceRecognition/FaceRecognition";
+import "../styles/app.css"
 // console.log(tescik2);
 function App() {
   const [newData, setData] = useState("");
   const [faceBox, setFaceBox] = useState([]);
   const [url, setUrl] = useState(null);
-
   const handleUrl = (event) => {
     event.preventDefault();
     // console.log("Current link: ", newData);
@@ -30,7 +27,7 @@ function App() {
     
     const width = Number(image.width);
     const height = Number(image.height);
-    console.log(boundaryBox);
+    // console.log(boundaryBox);
     const detectFace = boundaryBox.map((n) => {
       return {
         leftCol: n.left_col * width,
@@ -91,24 +88,10 @@ function App() {
       .then((result) => result.map((n) => n.region_info.bounding_box))
       .then((result) => calculateFaceLocation(url, result))
       .catch((error) => console.log("error", error));
-    // axios
-    //   .post(
-    //     "https://api.clarifai.com/v2/models/" +
-    //       MODEL_ID +
-    //       "/versions/" +
-    //       MODEL_VERSION_ID +
-    //       "/outputs",
-    //     requestOptions
-    //   )
-    //   .then((response) => response.data)
-    //   .then((response) => {
-    //     console.log("co to jest:", response);
-    //   });
   };
 
   return (
-    <div className="app">
-      <NavigationBar className="navBar" />
+      <>
       <div className="my-wrap">
         <Logo className="logo " />
         <Rank />
@@ -120,8 +103,8 @@ function App() {
       />
       <FaceRecognition faceBox={faceBox} newImage={url} />
       <ParticlesBg color="#FFFEFE" num={50} type="cobweb" bg={true} />
-    </div>
+      </>
+  
   );
 }
-
 export default App;

@@ -7,59 +7,59 @@
   width: 50%;
   height: 5rem;
   border-radius: 6px;
-  background-color: rgb(118, 118, 129);
-  background-image: linear-gradient(
-      30deg,
-      rgb(80, 80, 92) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgb(80, 80, 92) 87.5%,
-      rgb(80, 80, 92)
-    ),
-    linear-gradient(
-      150deg,
-      rgb(80, 80, 92) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgb(80, 80, 92) 87.5%,
-      rgb(80, 80, 92)
-    ),
-    linear-gradient(
-      30deg,
-      rgb(99, 99, 116) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgb(97, 97, 121) 87.5%,
-      rgb(97, 97, 121)
-    ),
-    linear-gradient(
-      150deg,
-      rgb(97, 97, 121) 12%,
-      transparent 12.5%,
-      transparent 87%,
-      rgb(97, 97, 121) 87.5%,
-      rgb(97, 97, 121)
-    ),
-    linear-gradient(
-      60deg,
-      #99a 25%,
-      transparent 25.5%,
-      transparent 75%,
-      #99a 75%,
-      #99a
-    ),
-    linear-gradient(
-      60deg,
-      #99a 25%,
-      transparent 25.5%,
-      transparent 75%,
-      #99a 75%,
-      #99a
-    );
-  background-size: 50px 60px;
-  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
-  /* opacity: 0.5; */
+  background-color: hsla(211, 43%, 56%, 0.62);
+  /* background-color: rgb(118, 118, 129); */
+  /* background-size: 50px 60px; */
+  /* background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px; */
 }
+/* background-image: linear-gradient(
+  30deg,
+  rgb(80, 80, 92) 12%,
+  transparent 12.5%,
+  transparent 87%,
+  rgb(80, 80, 92) 87.5%,
+  rgb(80, 80, 92)
+),
+linear-gradient(
+  150deg,
+  rgb(80, 80, 92) 12%,
+  transparent 12.5%,
+  transparent 87%,
+  rgb(80, 80, 92) 87.5%,
+  rgb(80, 80, 92)
+),
+linear-gradient(
+  30deg,
+  rgb(99, 99, 116) 12%,
+  transparent 12.5%,
+  transparent 87%,
+  rgb(97, 97, 121) 87.5%,
+  rgb(97, 97, 121)
+),
+linear-gradient(
+  150deg,
+  rgb(97, 97, 121) 12%,
+  transparent 12.5%,
+  transparent 87%,
+  rgb(97, 97, 121) 87.5%,
+  rgb(97, 97, 121)
+),
+linear-gradient(
+  60deg,
+  #99a 25%,
+  transparent 25.5%,
+  transparent 75%,
+  #99a 75%,
+  #99a
+),
+linear-gradient(
+  60deg,
+  #99a 25%,
+  transparent 25.5%,
+  transparent 75%,
+  #99a 75%,
+  #99a
+); */
 
 .formstyle > * {
   display: flex;
@@ -74,4 +74,7 @@ input {
 }
 .form {
   width: 100%;
+}
+button {
+  background-color: hsla(211, 43%, 64%, 0.68);
 }

@@ -1,30 +1,32 @@
 import React from "react";
 import "../../styles/faceRecognition.css";
-export default function FaceRecognition({ newImage, faceBox }) {
-  //   console.log("kurwaaa", {
-  //     top: `${faceBox[0].topRow}`,
-  //     right: `${faceBox[0].rightCol}`,
-  //     bottom: `${faceBox[0].bottomRow}`,
-  //     left: `${faceBox[0].leftCol}`,
-  //   });
+function FaceRecognition({ newImage, faceBox }) {
+  function isWebAddress(str) {
+    const regex = /^(https?:\/\/)?([\w.-]+)\.([a-zA-Z]{2,6})(\/[\w.-]*)*\/?$/;
+    return regex.test(str);
+  }
+  console.log("image", newImage);
   return (
     <div className="center ma">
       <div className="absolute mt2">
-        {newImage ? (
+        {isWebAddress(newImage) ? (
           <img
             id="face-img"
             className="photo"
             src={newImage}
             alt="face-photo"
           />
+        ) : newImage?.length !== 0 ? (
+          <p className="white">C'mon! give me some people, not objects!</p>
         ) : (
           ""
         )}
+
         {faceBox.length !== 0 ? (
           faceBox.map((n, index) => {
             return (
               <div
-                id={index}
+                key={index}
                 className="bounding-box"
                 style={{
                   top: n.topRow,
@@ -42,3 +44,4 @@ export default function FaceRecognition({ newImage, faceBox }) {
     </div>
   );
 }
+export default FaceRecognition;

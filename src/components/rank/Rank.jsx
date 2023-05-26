@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Rank() {
+ function Rank() {
   return (
     <div>
       <div className="white f3">Aron your rank is...</div>
@@ -8,3 +8,4 @@ export default function Rank() {
     </div>
   );
 }
+export default Rank;
